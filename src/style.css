@@ -1,1 +1,15 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+#card {
+  border: 1px solid black;
+  height: 400px;
+  width: 300px;
+  background: #c4c4c4;
+  border-radius: 15px;
+}
+
+#card > div {
+  /* width: 40px;
+  height: 24px;
+  padding: 0px; */
+}
