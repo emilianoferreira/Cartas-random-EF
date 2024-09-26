@@ -5,15 +5,6 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-// window.onload = function() {
-//   //write your code here
-//   console.log("Hello Rigo from the console!");
-//   // console.log(genRandom(card_num));
-//   // console.log(genRandom(card_suit));
-//   // console.log(genRandom(card_suit), genRandom(card_num));
-//   // console.log(genRndNumAndSuit());
-// };
-
 const card_num = [
   "2",
   "3",
@@ -29,20 +20,62 @@ const card_num = [
   "K",
   "A"
 ];
+
 const card_suit = ["♦", "♥", "♠", "♣"];
+
+let number;
+let suit;
 
 const genRandom = arr => {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
 const genRndNumAndSuit = () => {
-  let num = genRandom(card_num);
-  let suit = genRandom(card_suit);
-  console.log(num);
-  return `${num}${suit}`;
+  number = genRandom(card_num);
+  suit = genRandom(card_suit).toString();
+};
+
+const genCard = () => {
+  genRndNumAndSuit();
+  let cardNums = document.getElementsByClassName("card_num");
+  for (let num of cardNums) {
+    num.innerHTML = number;
+  }
+
+  let cardSuits = document.getElementsByClassName("card_suit");
+  for (let card of cardSuits) {
+    if (suit == "♦" || suit == "♥") {
+      card.style.color = "red";
+      card.innerHTML = suit;
+    } else {
+      card.style.color = "black";
+      card.innerHTML = suit;
+    }
+  }
 };
 
 document.getElementById("genBtn").addEventListener("click", () => {
-  genRndNumAndSuit();
-  document.getElementById("card_suit_position").innerHTML = `${num}`;
+  genCard();
+});
+
+//ELIMINAR VALORES DE NUMBER Y SUIT
+document.getElementById("deleteBtn").addEventListener("click", () => {
+  // Eliminar valores de number y suit
+  document.getElementById("deleteBtn").addEventListener("click", () => {
+    // Limpiar los valores
+    number = "";
+    suit = "";
+
+    // Limpiar el contenido de la carta en el DOM
+    let cardNums = document.getElementsByClassName("card_num");
+    for (let num of cardNums) {
+      num.innerHTML = "?"; // Dejar vacío
+    }
+
+    let cardSuits = document.getElementsByClassName("card_suit");
+    for (let card of cardSuits) {
+      card.style.color = ""; // Restablecer el color
+      card.innerHTML = "?"; // Dejar vacío
+    }
+  });
 });
