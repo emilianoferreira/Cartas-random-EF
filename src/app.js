@@ -5,6 +5,15 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
+// TO DO
+/*
+
++1 Add a button that generates a new card when clicked.
++1 Add a timer that generates a new card every 10 seconds.
++1 Allow the user to specify the card width and height using text inputs.
+
+*/
+
 const card_num = [
   "2",
   "3",
